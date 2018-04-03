@@ -1,0 +1,26 @@
+input
+{
+    border:outset 1px red;
+    border-radius: 50px;
+    padding:5px;
+}
+
+table, th, td {
+    border: 1px solid black;
+     border-bottom: 1px solid #dddddd;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 15px;
+    border-bottom: 1px solid #dddddd;
+}
+th {
+    color: papayawhip;
+}
+
+table {
+    /*background-color: #34282C*/
+    background-color: #483C32
+}
+

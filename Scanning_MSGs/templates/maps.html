@@ -1,0 +1,51 @@
+<!DOCTYPE html >
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>Google Maps JavaScript API Example: Map Simple</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSVM4sgb6UNFsNTMO5rUfjnsEI9vaexAU"
+            type="text/javascript"></script>
+    <script type="text/javascript">
+    var marker;
+    var infowindow;
+
+    function initialize() {
+      var latlng = new google.maps.LatLng(37.4419, -122.1419);
+      var options = {
+        zoom: 13,
+        center: latlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      var map = new google.maps.Map(document.getElementById("map"), options);
+      var html = "<table>" +
+                 "<tr><td></td><td><input type='button' value='Save & Close' onclick='saveData()'/></td></tr>";
+    infowindow = new google.maps.InfoWindow({
+     content: html
+    });
+
+    google.maps.event.addListener(map, "click", function(event) {
+        marker = new google.maps.Marker({
+          position: event.latLng,
+          map: map
+        });
+        google.maps.event.addListener(marker, "click", function() {
+          infowindow.open(map, marker);
+        });
+    });
+    }
+
+    function saveData() {
+        var latlng = marker.getPosition();
+        var url = "lat= " + latlng.lat() + "\tlng= " + latlng.lng();
+        console.log(url)
+    }
+    </script>
+  </head>
+
+  <body style="margin:0px; padding:0px;" onload="initialize()">
+    <div id="map" style="width: 500px; height: 300px"></div>
+    <div id="message"></div>
+  </body>
+
+</html>

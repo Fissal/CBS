@@ -1,0 +1,42 @@
+<html>
+<head>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'design1_CS361.css' %}" />
+    <meta charset="UTF-8">
+    <title>CBC_NEW_MSG</title>
+<style>
+
+</style>
+</head>
+<body>
+{% csrf_token %}
+<h1>New Message Request</h1>
+    <table border="1" style="width:100%">
+
+    <thead>
+
+        <th>Msg_Content</th>
+        <th>mas_ID</th>
+        <th>Rep_per</th>
+{#        <th>Phone</th>#}
+{#        <th>Office</th>#}
+    </thead>
+
+    <tbody>
+
+        <tr>
+        <ul>{% for Inp in ParametersList %}</ul>
+        <td>{{ Inp.Msg_Content }}</td>
+        <td>{{ Inp.mas_ID }}</td>
+            <td>{{ Inp.Rep_per }}</td>
+
+{#        <td>{{ Teacher.Teacher_Email }}</td>#}
+{#        <td>{{ Teacher.Teacher_Phone }}</td>#}
+{#        <td>{{ Teacher.Teacher_Office }}</td>#}
+    </tr>
+    {% endfor %}
+    </tbody>
+
+</table>
+</body>
+</html>
