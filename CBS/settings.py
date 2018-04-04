@@ -84,8 +84,11 @@ DATABASES = {
     'default': {
         'NAME' :'cbcmassages',
         'ENGINE': 'django.db.backends.mysql',
-        'USER' : 'cbc',
-        'PASSWORD': 'istlink2013'
+        'USER' : 'root',
+        'PASSWORD': '123',
+        'OPTIONS': {
+            'init_command': 'SET default_storage_engine=INNODB'
+        }
     }
 }
 
